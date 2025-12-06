@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comet Hopper: NASA Edition</title>
+    <link rel="stylesheet" href="comethopper.css">
+    
+    <!-- Google Fonts: Orbitron for Sci-Fi look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+    <!-- Main Game Script -->
+    <script type="module" src="comethopper.js"></script>
+</head>
+<body>
+
+    <!-- Username Modal -->
+    <div id="user-modal">
+        <div class="modal-content">
+            <h2>MISSION CONTROL</h2>
+            <p>Enter your Call Sign to begin tracking:</p>
+            <input type="text" id="username-input" placeholder="Pilot Name" maxlength="10">
+            <button id="start-btn">INITIATE LAUNCH</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-layout">
+        
+        <!-- Left Sidebar: Info -->
+        <aside class="sidebar left-panel">
+            <h1>COMET HOPPER</h1>
+            <div class="nasa-badge">🚀 JARON DEMBSKY</div>
+            
+            <div class="info-text">
+                <h3>Mission Briefing</h3>
+                <p>
+                    This simulation was engineered by <strong>Jaron Dembsky</strong> to honor the pioneers of NASA. 
+                    Your objective: Ascend through the cosmos using unstable orbital debris.
+                </p>
+                <p>
+                    <strong>WARNING:</strong> Platforms degrade upon contact. You have to keep moving.
+                </p>
+            </div>
+            
+            <div class="controls-info">
+                <p>◄Left [A] or [◄] | [D] [►]  Right►</p>
+            </div>
+        </aside>
+
+        <!-- Center: Game Canvas -->
+        <div class="game-container">
+            <canvas id="board"></canvas>
+        </div>
+
+        <!-- Right Sidebar: Stats & Leaderboard -->
+        <aside class="sidebar right-panel">
+            <div class="score-board">
+                <h3>Current Altitude</h3>
+                <span id="score-display">0</span>
+            </div>
+
+            <div class="leaderboard-section">
+                <h3>GALACTIC RECORDS</h3>
+                <ul id="leaderboard-list">
+                    <li>Loading Data...</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b0d17; /* Deep Space Black */
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px; 
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* Modal Styling */
+#user-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #15192b;
+    border: 2px solid #00d2ff; /* NASA Cyan */
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+}
+
+.modal-content input {
+    background: #000;
+    border: 1px solid #555;
+    color: #00d2ff;
+    padding: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    background: #00d2ff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.modal-content button:hover {
+    background: #fff;
+    box-shadow: 0 0 15px #fff;
+}
+
+/* Layout */
+.main-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    height: 100vh;
+}
+
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(0, 210, 255, 0.2);
+    border-left: 1px solid rgba(0, 210, 255, 0.2);
+    background: rgba(11, 13, 23, 0.8);
+}
+
+.left-panel { text-align: right; border-left: none; }
+.right-panel { text-align: left; border-right: none; }
+
+h1 {
+    color: #00d2ff;
+    text-shadow: 0 0 10px #00d2ff;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.nasa-badge {
+    background: #fc3d21; /* NASA Red */
+    color: white;
+    display: inline-block;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    align-self: flex-end;
+}
+
+.info-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.game-container {
+    flex: 0 0 400px; /* Fixed width for game mechanics */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    border-left: 2px solid #333;
+    border-right: 2px solid #333;
+}
+
+canvas {
+    display: block;
+    background-image: url("./doodlejumpbg.png"); /* Keep original BG or remove for pure CSS stars */
+    background-size: cover;
+}
+
+/* Stats */
+.score-board span {
+    display: block;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.leaderboard-section {
+    margin-top: 40px;
+    border: 1px solid #333;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#leaderboard-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+}
+
+#leaderboard-list li span.rank { color: #fc3d21; margin-right: 10px; }
+#leaderboard-list li span.name { color: #00d2ff; }
+#leaderboard-list li span.score { color: #fff; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .sidebar { display: none; }
+    .game-container { flex: 1; }
+    #user-modal { display: flex; } /* Ensure modal still works */
+}
